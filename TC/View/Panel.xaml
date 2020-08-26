@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="TC.View.Panel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:TC.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="300">
+    <Grid>
+        <StackPanel
+                    HorizontalAlignment="Left">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+
+                <ComboBox x:Name="ComboBoxDrive"
+                          Width="50" 
+                          Margin="5,5,5,5"
+                SelectionChanged="Drive_SelectionChanged"
+                          ItemsSource="{
+                                Binding Path=DriveListPanel,
+                                RelativeSource={
+                                    RelativeSource Mode=FindAncestor,
+                                    AncestorType={x:Type UserControl}
+                                }
+                            }"
+                          SelectedItem="{
+                            Binding Path=SelectedDrive,
+                            Mode=OneWayToSource,
+                            UpdateSourceTrigger=PropertyChanged,
+                            RelativeSource={
+                                RelativeSource Mode=FindAncestor,
+                                AncestorType={x:Type UserControl}
+                            }                        
+                        }">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+
+                <TextBox x:Name="TextBoxPath"
+                         Width="230"
+                         VerticalAlignment="Center"
+                         IsEnabled="False"
+                         Text="{
+                                Binding Path=Path,
+                                Mode=OneWay,
+                                RelativeSource={
+                                    RelativeSource Mode=FindAncestor,
+                                    AncestorType={x:Type UserControl}
+                                }
+                            }"/>
+                
+            </StackPanel>
+
+            <ListBox    x:Name="fileListBox"
+                        Width="340"
+                        Height="400"
+                        SelectionChanged="FileList_SelectionChanged"
+                        MouseDoubleClick="FileList_MouseDoubleClick"
+                        GotFocus="FileList_GotFocus"
+                        ItemsSource="{
+                            Binding Path=FileList,
+                            Mode=OneWay,
+                            RelativeSource={
+                                RelativeSource Mode=FindAncestor,
+                                AncestorType={x:Type UserControl}
+                            }                        
+                        }"
+                        SelectedItem="{
+                            Binding Path=SelectedFile,
+                            Mode=OneWayToSource,
+                            UpdateSourceTrigger=PropertyChanged,
+                            RelativeSource={
+                                RelativeSource Mode=FindAncestor,
+                                AncestorType={x:Type UserControl}
+                            }                        
+                        }">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

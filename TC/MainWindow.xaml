@@ -1,0 +1,84 @@
+﻿<Window x:Class="TC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TC.View"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:resx="clr-namespace:TC.Properties"
+        xmlns:vm="clr-namespace:TC.ViewModel"
+        ResizeMode="NoResize"
+        Height="500"
+        Width="600"
+        Title="MainWindow">
+    
+    <Window.Resources>
+        <vm:WindowVM x:Key="ViewModel"/>
+    </Window.Resources>
+    
+    <Grid Background="SlateGray"
+          DataContext="{StaticResource ResourceKey=ViewModel}">
+        <Grid  Height="430"
+               VerticalAlignment="Top">
+            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <local:Panel x:Name="PanelLeft"
+                     SelectedDrive="{Binding Path=SelectedDrive_Left, Mode=OneWayToSource}"
+                     SelectedFile="{Binding Path=SelectedFile_Left, Mode=OneWayToSource}"
+                     DriveListPanel="{Binding Path=DriveListVM}"
+                     FileList="{Binding Path=Directory_Left, Mode=OneWay}"
+                     Path="{Binding Path=Path_Left, Mode=OneWay}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding EnterSelectedFolder_Left}"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="FocusedPanel">
+                    <i:InvokeCommandAction Command="{Binding FocusedPanel_Left}"/>
+                </i:EventTrigger>
+
+            </i:Interaction.Triggers>
+        </local:Panel>
+            
+        <local:Panel x:Name="PanelRight"  
+                     Grid.Column="1"
+                     SelectedDrive="{Binding Path =SelectedDrive_Right, Mode=OneWayToSource}"
+                     SelectedFile="{Binding Path=SelectedFile_Right, Mode=OneWayToSource}"
+                     DriveListPanel="{Binding Path=DriveListVM}"
+                     FileList="{Binding Path=Directory_Right, Mode=OneWay}"
+                     Path="{Binding Path=Path_Right, Mode =OneWay}"
+                     >
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding EnterSelectedFolder_Right}"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="FocusedPanel">
+                    <i:InvokeCommandAction Command="{Binding FocusedPanel_Right}"/>
+                </i:EventTrigger>
+
+            </i:Interaction.Triggers>
+        </local:Panel>
+
+    </Grid>
+        
+        <Grid VerticalAlignment="Bottom"
+              HorizontalAlignment="Center">
+
+            <Button Content="{x:Static resx:Resources.Copy}"
+                    Margin="0,0,0,5">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding Copy}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>                
+            </Button>
+        
+        </Grid>
+    </Grid>
+</Window>
