@@ -7,9 +7,7 @@ D:\repos2\TC\TC\TC\bin\Debug\netcoreapp3.1\TC.runtimeconfig.json
 D:\repos2\TC\TC\TC\bin\Debug\netcoreapp3.1\TC.runtimeconfig.dev.json
 D:\repos2\TC\TC\TC\bin\Debug\netcoreapp3.1\TC.dll
 D:\repos2\TC\TC\TC\bin\Debug\netcoreapp3.1\TC.pdb
-D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\TC_MarkupCompile.lref
-D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\MainWindow.baml
 D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\TC.g.resources
 D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\TC.Properties.Resources.resources
 D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\TC.csproj.GenerateResource.cache
@@ -25,5 +23,5 @@ D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\View\Panel.baml
 D:\repos2\TC\TC\TC\bin\Debug\netcoreapp3.1\Microsoft.Expression.Interactions.dll
 D:\repos2\TC\TC\TC\bin\Debug\netcoreapp3.1\System.Windows.Interactivity.dll
 D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\TC.csproj.CopyComplete
-D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\View\PanelTC.g.cs
-D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\View\PanelTC.baml
+D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\View\MainWindow.g.cs
+D:\repos2\TC\TC\TC\obj\Debug\netcoreapp3.1\View\MainWindow.baml
